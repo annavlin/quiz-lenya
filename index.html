@@ -17,11 +17,10 @@
       })(window, document, 'script');
     </script>
   </head>
-
-  <body>
-    <h1 style="text-align: center">КВИЗЛЁНЯ 💥</h1>
-
-    <div data-marquiz-id="69ef2ea44d59b50019b6b511"></div>
+  <body style="margin: 0">
+    <div style="width: 100%; margin: 0; padding: 0">
+      <div data-marquiz-id="69ef2ea44d59b50019b6b511"></div>
+    </div>
 
     <script>
       (function (t, p) {
@@ -38,5 +37,30 @@
         height: '1600',
       });
     </script>
+    <script src="script.js"></script>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .container {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .card {
+        flex: 1;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 10px;
+      }
+
+      .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
   </body>
 </html>

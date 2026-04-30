@@ -11,7 +11,7 @@
     : document.addEventListener('marquizLoaded', function () {
         Marquiz.add([t, p]);
       });
-})('Inline', {
+})('Pop', {
   id: '69ef2ea44d59b50019b6b511',
   height: window.innerHeight,
   fullWidth: true

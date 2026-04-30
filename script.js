@@ -3,6 +3,6 @@
   buttonText: 'Старт',
   bgColor: '#f4e4ba',
   textColor: '#000000',
-  height: '1200',
+  height: height: window.innerHeight,
   fullWidth: true,
 });

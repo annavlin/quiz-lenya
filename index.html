@@ -1,39 +1,151 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Мой квиз</title>
+  <meta charset="UTF-8" />
+  <title>Квиз Лёня</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Marquiz script -->
-  <script>
-    (function (w, d, s, o) {
-      var j = d.createElement(s);
-      j.async = true;
-      j.src = '//script.marquiz.ru/v2.js';
-      j.onload = function () {
-        if (document.readyState !== 'loading') Marquiz.init(o);
-        else document.addEventListener('DOMContentLoaded', function () {
-          Marquiz.init(o);
-        });
-      };
-      d.head.insertBefore(j, d.head.firstElementChild);
-    })(window, document, 'script', {
-      host: '//quiz.marquiz.ru',
-      region: 'ru',
-      id: '69ef2ea44d59b50019b6b511',
-      autoOpen: 0
-    });
-  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 
+    body {
+      height: 100vh;
+      display: flex;
+      background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 40%, #ffffff 100%);
+      color: white;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Левая часть */
+    .left {
+      width: 50%;
+      padding: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .title {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #cfcfcf;
+      margin-bottom: 40px;
+      max-width: 450px;
+      line-height: 1.5;
+    }
+
+    .btn {
+      width: fit-content;
+      padding: 14px 28px;
+      border: 1px solid #d6b37a;
+      background: transparent;
+      color: #d6b37a;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #d6b37a;
+      color: black;
+    }
+
+    /* Правая часть */
+    .right {
+      width: 50%;
+      background: url('https://i.imgur.com/your-image.png') no-repeat center;
+      background-size: cover;
+    }
+
+    /* FULLSCREEN QUIZ */
+    .quiz {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      background: black;
+      z-index: 999;
+    }
+
+    .quiz iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* адаптив */
+    @media (max-width: 900px) {
+      body {
+        flex-direction: column;
+      }
+
+      .left, .right {
+        width: 100%;
+        height: 50%;
+      }
+
+      .left {
+        padding: 40px;
+      }
+
+      .title {
+        font-size: 24px;
+      }
+    }
+  </style>
 </head>
 
-<body style="background:#111; color:white; display:flex; justify-content:center; align-items:center; height:100vh;">
+<body>
 
-  <!-- КНОПКА -->
-  <button onclick="Marquiz.showModal('69ef2ea44d59b50019b6b511')" 
-          style="padding:20px 40px; font-size:20px; border-radius:10px; border:none; cursor:pointer;">
-    Открыть квиз
-  </button>
+<div class="container">
+  <div class="left">
+    <div class="title">
+      Насколько хорошо вы знаете<br />
+      нашего сегодняшнего юбиляра?
+    </div>
+
+    <div class="subtitle">
+      Докажи соперникам, что именно ты самый внимательный,
+      слушающий, а главное слышащий друг!
+    </div>
+
+    <button class="btn" onclick="startQuiz()">Погнали!</button>
+  </div>
+
+  <div class="right"></div>
+</div>
+
+<!-- FULLSCREEN QUIZ -->
+<div class="quiz" id="quiz">
+  <iframe src="https://mrqz.me/69ef2ea44d59b50019b6b511"></iframe>
+</div>
+
+<script>
+  function startQuiz() {
+    document.querySelector(".container").style.display = "none";
+    document.getElementById("quiz").style.display = "block";
+  }
+</script>
 
 </body>
 </html>

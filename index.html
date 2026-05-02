@@ -1,90 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Квиз Лёня</title>
+  <meta charset="UTF-8">
+  <title>Мой квиз</title>
 
-<!-- Marquiz -->
-<script>
-(function (w, d, s, o) {
-  var j = d.createElement(s);
-  j.async = true;
-  j.src = 'https://script.marquiz.ru/v2.js';
-  j.onload = function () {
-    Marquiz.init(o);
-  };
-  d.head.appendChild(j);
-})(window, document, 'script', {
-  host: 'https://quiz.marquiz.ru',
-  region: 'ru',
-  id: '69ef2ea44d59b50019b6b511',
-  autoOpen: 0
-});
-</script>
+  <!-- Marquiz script -->
+  <script>
+    (function (w, d, s, o) {
+      var j = d.createElement(s);
+      j.async = true;
+      j.src = '//script.marquiz.ru/v2.js';
+      j.onload = function () {
+        if (document.readyState !== 'loading') Marquiz.init(o);
+        else document.addEventListener('DOMContentLoaded', function () {
+          Marquiz.init(o);
+        });
+      };
+      d.head.insertBefore(j, d.head.firstElementChild);
+    })(window, document, 'script', {
+      host: '//quiz.marquiz.ru',
+      region: 'ru',
+      id: '69ef2ea44d59b50019b6b511',
+      autoOpen: 0
+    });
+  </script>
 
-<style>
-body {
-  margin: 0;
-  background: #0f172a;
-  color: white;
-  font-family: sans-serif;
-}
-
-.container {
-  display: flex;
-  height: 100vh;
-}
-
-.left {
-  width: 50%;
-  padding: 80px;
-}
-
-.right {
-  width: 50%;
-}
-
-.right img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-button {
-  margin-top: 30px;
-  padding: 15px 25px;
-  font-size: 18px;
-  cursor: pointer;
-}
-</style>
 </head>
 
-<body>
+<body style="background:#111; color:white; display:flex; justify-content:center; align-items:center; height:100vh;">
 
-<div class="container">
-
-  <div class="left">
-    <h1>Насколько хорошо вы знаете юбиляра?</h1>
-    <p>Докажи, что ты лучший друг 😏</p>
-
-    <button onclick="openQuiz()">Погнали</button>
-  </div>
-
-  <div class="right">
-    <img src="https://picsum.photos/800/1200">
-  </div>
-
-</div>
-
-<script>
-function openQuiz() {
-  if (window.Marquiz) {
-    Marquiz.showModal();
-  } else {
-    alert("Квиз ещё загружается, попробуй через секунду");
-  }
-}
-</script>
+  <!-- КНОПКА -->
+  <button onclick="Marquiz.showModal('69ef2ea44d59b50019b6b511')" 
+          style="padding:20px 40px; font-size:20px; border-radius:10px; border:none; cursor:pointer;">
+    Открыть квиз
+  </button>
 
 </body>
 </html>

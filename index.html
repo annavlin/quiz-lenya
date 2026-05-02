@@ -10,27 +10,32 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     body {
-      height: 100vh;
       display: flex;
       background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 40%, #ffffff 100%);
       color: white;
-      overflow: hidden;
     }
 
     .container {
       display: flex;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
     }
 
-    /* Левая часть */
+    /* ЛЕВАЯ ЧАСТЬ */
     .left {
-      width: 50%;
-      padding: 80px;
+      width: 50vw;
+      height: 100vh;
+      padding-left: 60px; /* регулируй под себя */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -47,20 +52,19 @@
       font-size: 18px;
       color: #cfcfcf;
       margin-bottom: 40px;
-      max-width: 450px;
+      max-width: 500px;
       line-height: 1.5;
     }
 
     .btn {
-      width: fit-content;
       padding: 14px 28px;
       border: 1px solid #d6b37a;
       background: transparent;
       color: #d6b37a;
-      font-size: 16px;
       border-radius: 8px;
       cursor: pointer;
       transition: 0.3s;
+      font-size: 16px;
     }
 
     .btn:hover {
@@ -68,10 +72,11 @@
       color: black;
     }
 
-    /* Правая часть */
+    /* ПРАВАЯ ЧАСТЬ */
     .right {
-      width: 50%;
-      background: url('https://i.imgur.com/your-image.png') no-repeat center;
+      width: 50vw;
+      height: 100vh;
+      background: url('ВСТАВЬ_ССЫЛКУ_НА_КАРТИНКУ') no-repeat center;
       background-size: cover;
     }
 
@@ -80,8 +85,8 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       display: none;
       background: black;
       z-index: 999;
@@ -93,19 +98,19 @@
       border: none;
     }
 
-    /* адаптив */
+    /* МОБИЛКА */
     @media (max-width: 900px) {
-      body {
+      .container {
         flex-direction: column;
       }
 
       .left, .right {
-        width: 100%;
-        height: 50%;
+        width: 100vw;
+        height: 50vh;
       }
 
       .left {
-        padding: 40px;
+        padding: 30px;
       }
 
       .title {
